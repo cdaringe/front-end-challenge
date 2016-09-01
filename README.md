@@ -2,7 +2,16 @@
 
 a small set of exercises pertinent to front end programming!
 
-1. clone & `cd [this-directory!]`
-1. `npm install`
-1. `npm test`
-  1. this will fire up a browser.  please follow the onscreen instructions!  your objective is to make all tests pass.
+## requirements
+
+- your computer
+- [nodejs](http://www.nodejs.org)
+- a web browser
+
+## how
+
+- clone & `cd [this-directory!]`
+- `npm install`
+- `npm test`
+  - this will fire up a browser.  please follow the onscreen instructions!  your objective is to make all tests pass.
+    - by default we will use `chrome`. if you want to use `firefox` or `safari`, please edit `testem.json` accordingly for the exercise

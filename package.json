@@ -1,0 +1,22 @@
+{
+  "name": "front-end-challenge",
+  "version": "1.0.0",
+  "description": "1. clone me 1. `npm install` 1. `npm test`   - tests will fail.  `npm run live-test`",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "jquery": "^3.1.0",
+    "tape": "^4.6.0",
+    "testem": "^0.7.5"
+  },
+  "scripts": {
+    "ci": "testem ci -P 10",
+    "test": "testem"
+  },
+  "author": "",
+  "license": "ISC"
+}

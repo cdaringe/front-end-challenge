@@ -60,7 +60,7 @@ var controller = {
    * the value 1 only after isEvenTime confirms that the current time... is even!
    */
   a: function(cb) {
-    tooling.isEvenTime(cb) // calls back with whether or not we are an event count of ticks from the epoch
+    tooling.isEvenTime(cb) // calls back with whether or not we are an even count of ticks from the epoch
     return 1
   },
 

@@ -42,5 +42,5 @@ test('CHALLENGE 1 - form bugs', function(t) {
     t.end()
   }
   jq('#challenge_1_text').val(testInput)
-  jq('#submit_challenge_1').click()
+  jq('#submit_challenge_1').click() // submits <form />
 })

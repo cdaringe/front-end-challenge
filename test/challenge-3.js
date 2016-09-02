@@ -18,7 +18,7 @@
  * \  /
  *  c      // tier 3 get c, aggregate
  *
- * Each of these functions, however, is asynchronus.  Modify the `controller`
+ * Each of these functions, however, are asynchronus.  Modify the `controller`
  * code to honor the control flow described above and satisfy the test.
  * The `entry` function expresses the intent of what you need to do, as if all
  * of the code was written synchronously.

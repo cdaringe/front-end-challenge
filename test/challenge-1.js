@@ -19,7 +19,9 @@ var jq = require('jquery')
 // END NO-EDIT
 
 var controller = {
-  post: function(value) {},
+  post: function(value) {
+    /* will be overridden in the test below */
+  },
   handleSubmit: function(evt) {
     this.post(evt.target.value)
   }

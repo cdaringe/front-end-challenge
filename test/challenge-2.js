@@ -52,7 +52,7 @@ var controller = {
 
 test('conversions', function(t) {
   // REMOVE the following two statements to begin!
-  t.skip('please open test/challenge-2.js and follow comment prompts.')
+  t.fail('please open test/challenge-2.js and follow comment prompts.')
   return t.end();
   // END REMOVE
   tooling.challenge2Setup(controller)

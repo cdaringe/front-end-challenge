@@ -88,7 +88,7 @@ var controller = {
 // NO EDITS BELOW
 test('async-things', function(t) {
   // REMOVE the following two statements to begin!
-  t.skip('please open test/challenge-3.js and follow comment prompts.')
+  t.fail('please open test/challenge-3.js and follow comment prompts.')
   return t.end()
   // END REMOVE
   t.plan(1)

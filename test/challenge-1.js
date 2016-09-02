@@ -26,7 +26,7 @@ var controller = {
 
 test('CHALLENGE 1 - form bugs', function(t) {
   // REMOVE THE FOLLOWING TWO STATEMENTS TO BEGIN
-  t.skip('please open test/challenge-1.js and follow comment prompts.')
+  t.fail('please open test/challenge-1.js and follow comment prompts.')
   return t.end()
   // END REMOVE
 

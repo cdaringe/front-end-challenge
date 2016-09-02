@@ -63,8 +63,10 @@ module.exports = {
     ]
   },
   isEvenTime: function(cb) {
-    setInterval(function() {
-      cb(null, !!(Date.now() % 2))
+    var loop = setInterval(function() {
+      var isEven = !!(Date.now() % 2)
+      cb(null, isEven)
+      if (isEven) { clearInterval(loop) }
     }, 100)
   },
 

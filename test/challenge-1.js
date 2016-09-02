@@ -5,7 +5,8 @@
  *
  * Your job is to:
  *   - fix the defect you encounter when you run the test. specifically,
- *     identify the root cause && remove the content page reloading.
+ *     identify the root cause && remove the page reloading bug.  you will
+ *     find that the page reloads constantly in a seemingly infinite loop.
  *   - get the assertion to pass, maintaining the test intent.
  */
 

@@ -94,7 +94,7 @@ test('async-things', function(t) {
   t.plan(1)
   var end = function(err, r) {
     if (err) return t.fail(err)
-    t.equals(r, 1)
+    t.equals(r, 84, 'async thingies == 84')
     t.end()
   }
   controller.entry(end)

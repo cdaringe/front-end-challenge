@@ -42,7 +42,7 @@ var TEST_OUTPUTS = [
 ]
 // END NO EDIT
 
-// edits only required in the `controller`
+// edits only required in the `controller`, after removing the `t.fail` below
 var controller = {
   toKebab: function() {
     var input = jq('#kebab_case_in').val()

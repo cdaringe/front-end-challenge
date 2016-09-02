@@ -29,7 +29,7 @@ var tooling = require('./challenge-tooling')
 var test = require('tape')
 var jq = require('jquery')
 
-// edits only required in the `controller`
+// edits only required in the `controller`, after removing the `t.fail` below
 var controller = {
 
   // start here. entry is written as though the other functions in controller

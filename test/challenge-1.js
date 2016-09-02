@@ -18,6 +18,7 @@ var test = require('tape')
 var jq = require('jquery')
 // END NO-EDIT
 
+// edits only required in the `controller`
 var controller = {
   post: function(value) {
     /* will be overridden in the test below */

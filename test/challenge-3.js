@@ -4,12 +4,12 @@
  * Suppose you have a task that computes a single value.  That value is obtained
  * by aggegating simple integers.  Suppose that it:
  * - gets the first value, using a function a().  the aggregate is updated via
- *   `aggregate = someAggreatorFn(a-result)`
+ *   `aggregate = someFunction(a-result)`
  * - gets the second and third values, via b1() and b2(), in parallel. The
- *   aggegate value is updated by `aggregate += someAggreatorFn(a-result + b1-result)`
- *   and `aggregate += someAggreatorFn(a-result + b2-result)` in parallel.
+ *   aggegate value is updated by `aggregate += someFunction(a-result + b1-result)`
+ *   and `aggregate += someFunction(a-result + b2-result)` in parallel.
  * - gets final value from c(), and aggregates just as above.
- *   `aggregate += someAggreatorFn(a + b1 + b2 + c)`
+ *   `aggregate += someFunction(a + b1 + b2 + c)`
  *
  * in other words, the value is obtained using the following control flow:
  *   a     // tier 1,get a, aggregate

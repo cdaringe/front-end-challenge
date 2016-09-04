@@ -28,6 +28,25 @@ var controller = {
   }
 }
 
+var view = {
+  setup: function(viewController) {
+    tooling.resetSandbox()
+    var $sbox = jq(tooling.getSandbox())
+    var challenge1Form = [
+      '<form id="challenge_1">',
+        '<input id="challenge_1_text" type="text" />',
+        '<button id="submit_challenge_1" type="submit">submit</button>',
+      '</form>'
+    ].join('')
+    $sbox.append(challenge1Form)
+    window.document.getElementById('challenge_1').addEventListener(
+      'submit',
+      function() { viewController.handleSubmit.apply(viewController, arguments) }
+    )
+  },
+  teardown: function() { tooling.resetSandbox() }
+}
+
 test('CHALLENGE 1 - form bugs', function(t) {
   // REMOVE THE FOLLOWING TWO STATEMENTS TO BEGIN
   t.fail('please open test/challenge-1.js and follow comment prompts.')
@@ -35,11 +54,11 @@ test('CHALLENGE 1 - form bugs', function(t) {
   // END REMOVE
 
   var testInput = 'test-input'
-  tooling.challenge1Setup(controller)
+  view.setup(controller)
   t.plan(1)
   controller.post = function(posted) {
     t.equals(testInput, posted, 'submitted form input value POST\'ed')
-    tooling.challenge1Teardown()
+    view.teardown()
     t.end()
   }
   jq('#challenge_1_text').val(testInput)

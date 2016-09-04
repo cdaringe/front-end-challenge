@@ -46,7 +46,8 @@ var TEST_OUTPUTS = [
 var controller = {
   toKebab: function() {
     var input = jq('#kebab_case_in').val()
-    return input
+    // TODO implement kebab-case
+    jq('#kebab_case_out').val(input)
   }
 }
 

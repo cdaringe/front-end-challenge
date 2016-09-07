@@ -29,7 +29,6 @@ var tooling = require('./challenge-tooling')
 var test = require('tape')
 var jq = require('jquery')
 
-
 var model = {
   getB1Value: function() { return Promise.resolve(3) },
   getCValues: function() {

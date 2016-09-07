@@ -38,7 +38,7 @@ test('CHALLENGE 1 - form bugs', function(t) {
   tooling.challenge1Setup(controller)
   t.plan(1)
   controller.post = function(posted) {
-    t.equals(testInput, posted, 'submitted form input value POST\'ed')
+    t.equals(posted, testInput, 'submitted form input value POST\'ed')
     tooling.challenge1Teardown()
     t.end()
   }

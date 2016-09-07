@@ -63,7 +63,7 @@ test('conversions', function(t) {
   TEST_INPUTS.forEach(function testInputStr(str, ndx) {
     $inputField.val(str)
     $submit.click()
-    t.equals(TEST_OUTPUTS[ndx], $outputField.val(), 'kebab cased "' + str + '"')
+    t.equals($outputField.val(), TEST_OUTPUTS[ndx], 'kebab cased "' + str + '"')
   })
   tooling.challenge2Teardown()
   t.end()

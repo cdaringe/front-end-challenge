@@ -1,22 +1,44 @@
 {
   "name": "front-end-challenge",
   "version": "1.0.0",
-  "description": "1. clone me 1. `npm install` 1. `npm test`   - tests will fail.  `npm run live-test`",
+  "description": "",
   "main": "src/index.js",
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
+    "shizam": "0.0.5",
     "browserify": "^13.1.0",
+    "gh-pages": "^0.11.0",
     "jquery": "^3.1.0",
+    "jsdoc": "^3.4.0",
+    "minami": "^1.1.1",
+    "nyc": "^8.1.0",
+    "standard": "^8.0.0-beta.5",
+    "standard-format": "^2.2.2",
     "tape": "^4.6.0",
     "testem": "^0.7.5"
   },
   "scripts": {
     "ci": "testem ci -P 10",
-    "test": "testem"
+    "test": "testem",
+    "lint": "standard \"src/**/*.js\" \"test/**/*.js\"",
+    "lintfix": "standard-format -w",
+    "validate": "npm ls",
+    "preversion": "git checkout master && git pull && npm ls",
+    "docs": "mkdir -p docs && jsdoc -c .jsdoc.json src/",
+    "deploy-docs": "gh-pages -d docs && rm -rf docs",
+    "postpublish": "npm run docs && npm run deploy-docs",
+    "publish-patch": "npm run preversion && npm version patch && git push origin master --tags && npm publish",
+    "publish-minor": "npm run preversion && npm version minor && git push origin master --tags && npm publish",
+    "publish-major": "npm run preversion && npm version major && git push origin master --tags && npm publish"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "pre-commit": [
+    "validate",
+    "lint"
+  ]
 }

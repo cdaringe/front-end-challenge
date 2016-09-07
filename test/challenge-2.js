@@ -50,12 +50,36 @@ var controller = {
   }
 }
 
+var view = {
+  setup: function(viewController) {
+    tooling.resetSandbox()
+    var challenge2Form = [
+      '<form id="challenge_2">',
+        '<input id="kebab_case_in" type="text" />',
+        '<input id="kebab_case_out" type="text" />',
+        '<button type="submit" id="convert_to_kebab_case" type="submit">convert</button>',
+      '</form>'
+    ].join('')
+    var $sbox = jq(tooling.getSandbox())
+    $sbox.append(challenge2Form)
+    window.document.getElementById('challenge_2').addEventListener(
+      'submit',
+      function() {
+        this.mark.apply(this, arguments)
+        viewController.toKebab.apply(viewController, arguments)
+        this.mark.apply(this, arguments)
+      }.bind(tooling)
+    )
+  },
+  teardown: function() { tooling.resetSandbox() }
+}
+
 test('conversions', function(t) {
   // REMOVE the following two statements to begin!
   t.fail('please open test/challenge-2.js and follow comment prompts.')
   return t.end();
   // END REMOVE
-  tooling.challenge2Setup(controller)
+  view.setup(controller)
   var $inputField = jq('#kebab_case_in')
   var $outputField = jq('#kebab_case_out')
   var $submit = jq('#convert_to_kebab_case')
@@ -65,6 +89,6 @@ test('conversions', function(t) {
     $submit.click()
     t.equals($outputField.val(), TEST_OUTPUTS[ndx], 'kebab cased "' + str + '"')
   })
-  tooling.challenge2Teardown()
+  view.teardown()
   t.end()
 })

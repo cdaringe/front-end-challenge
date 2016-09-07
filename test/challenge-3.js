@@ -29,6 +29,24 @@ var tooling = require('./challenge-tooling')
 var test = require('tape')
 var jq = require('jquery')
 
+var model = {
+  getB1Value: function() { return Promise.resolve(3) },
+  getCValues: function() {
+    return [
+      new Promise(function(res) { setTimeout(function() { res(1) }, 50) }),
+      2,
+      Promise.resolve(4)
+    ]
+  },
+  isEvenTime: function(cb) {
+    var loop = setInterval(function() {
+      var isEven = !!(Date.now() % 2)
+      cb(null, isEven)
+      if (isEven) { clearInterval(loop) }
+    }, 100)
+  }
+}
+
 // edits only required in the `controller`, after removing the `t.fail` below
 var controller = {
 
@@ -62,7 +80,7 @@ var controller = {
   a: function(cb) {
     // calls back with whether or not we are an even count of ticks from the epoch
     // calls back many times until an even time is called
-    tooling.isEvenTime(cb)
+    model.isEvenTime(cb)
     return 1
   },
 
@@ -70,7 +88,7 @@ var controller = {
    * promises or callbacks OK. b1 must use getB1Value to get its value
    */
   b1: function() {
-    tooling.getB1Value() // returns a Promise. will resolve to b1's value
+    model.getB1Value() // returns a Promise. will resolve to b1's value
   },
 
   /**
@@ -84,7 +102,7 @@ var controller = {
    * promises or callbacks OK. c must use getCValues to get its value
    */
   c: function() {
-    tooling.getCValues() // returns an array of Promises. sum the results results on resolution
+    model.getCValues() // returns an array of Promises. sum the results results on resolution
   }
 }
 

@@ -1,6 +1,6 @@
 # front-end-challenge
 
-a small set of exercises pertinent to front end programming!
+a small set of exercises pertinent to front end development!
 
 ## requirements
 

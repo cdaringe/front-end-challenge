@@ -1,0 +1,62 @@
+<html>
+<head>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background: lawngreen;
+      height: 30px;
+    }
+    nav ul {
+      display: inline;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    nav ul li {
+      display: inline;
+    }
+    #content {
+      background: salmon;
+      font-size: 2em;
+      padding: 1em;
+    }
+    header {
+      background: yellow;
+      height: 100px;
+    }
+    footer {
+      height: 200px;
+      background: thistle;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <span>Nav</span>
+    <ul>
+      <li>
+        ABC |
+      </li>
+      <li>
+        DEF
+      </li>
+    </ul>
+  </nav>
+  <header>Holy Ipsum!</header>
+  <div id='content'></div>
+  <footer>i am a footer</footer>
+  <script>
+    var content = document.getElementById('content')
+    var lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    var i = 6
+    while (i) {
+      lorem += lorem
+      --i
+    }
+    content.innerText = lorem
+  </script>
+</body>
+</html>

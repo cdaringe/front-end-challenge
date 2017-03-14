@@ -55,7 +55,7 @@ test('CHALLENGE 1 - form bugs', function (t) {
   t.fail('please open test/challenge-1.js and follow comment prompts.')
   return t.end()
   // END REMOVE
-arst
+
   var testInput = 'test-input'
   view.setup(controller)
   t.plan(1)

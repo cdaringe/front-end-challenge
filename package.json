@@ -12,7 +12,7 @@
     "jquery": "^3.1.0",
     "standard": "^9.0.1",
     "tape": "^4.6.0",
-    "testem": "^0.7.5"
+    "testem": "^1.16.1"
   },
   "scripts": {
     "ci": "testem ci -P 10",

@@ -23,47 +23,45 @@ var jq = require('jquery')
 
 test('CHALLENGE 1 - form bugs', function (t) {
   // REMOVE THE FOLLOWING TWO STATEMENTS TO BEGIN
-  t.fail('please open test/challenge-1.js and follow comment prompts.')
+  // AFTER REMOVED, EDITS ARE ONLY REQUIRED IN THE `controller` object
+  t.fail('==> 🚨 👀 please open test/challenge-1.js and follow comment prompts. 👀 🚨 <==')
   return t.end()
   // END REMOVE
 
   var testInput = 'TEST-INPUT'
-  view.setup(controller)
-  t.plan(1)
-  controller.post = function (posted) {
-    t.equals(posted, testInput, 'submitted form input value POST\'ed')
-    view.teardown()
-    t.end()
-  }
+  view.setup()
+  controller.t = t
+  controller.testInput = testInput
+  t.plan(1) // note, our test assertion happens in the `controller` object
   jq('#challenge_1_text').val(testInput)
   jq('#submit_challenge_1').click() // submits <form />
 })
 
 // edits ONLY required in the `controller` object below
 var controller = {
-  post: function (value) {
-    /* will be overridden in the test below */
-  },
   handleSubmit: function (evt) {
-    this.post(evt.target.value)
+    var value = evt.target.testInput
+    this.t.equals(value, this.testInput, 'testInput value found in form input control')
+    this.t.end()
   }
 }
 
 var view = {
-  setup: function (viewController) {
+  setup: function () {
     tooling.resetSandbox()
-    var $sbox = jq(tooling.getSandbox())
-    var challenge1Form = [
+    var $sandbox = jq(tooling.getSandbox())
+    var form = [
       '<form id="challenge_1">',
-        '<input id="challenge_1_text" type="text" />',
+        '<input name="testInput" id="challenge_1_text" type="text" />',
         '<button id="submit_challenge_1" type="submit">submit</button>',
       '</form>'
     ].join('')
-    $sbox.append(challenge1Form)
+    $sandbox.append(form)
     window.document.getElementById('challenge_1').addEventListener(
       'submit',
-      function () { viewController.handleSubmit.apply(viewController, arguments) }
+      function onFormSubmit () {
+        controller.handleSubmit.apply(controller, arguments)
+      }
     )
-  },
-  teardown: function () { tooling.resetSandbox() }
+  }
 }

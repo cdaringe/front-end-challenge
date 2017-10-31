@@ -5,10 +5,11 @@
  * kebab-case, it's an all lowercase format, where all words are seperated by hyphens.
  * _'s and all continuous whitespace characters are replaced by -.  Strings
  * always start and end with the word components, and thus never whitespace.
+ * examples: https://lodash.com/docs/4.17.4#kebabCase
  *
  * Your objective is to:
  *   - write the logic to convert the user input into kebab-case.
- *   - set the resulting kebabed text value into <input id="kebab_case_out" />.
+ *   - set the kebab text into <input id="kebab_case_out" />.
  */
 
  // BEGIN NO EDIT
@@ -27,7 +28,7 @@ var TEST_INPUTS = [
   '____',
   '_ a _ b _',
   '---ab c--',
-  'A Cantankerous Walrus eats BIG_FISHIES!'
+  'A Cantankerous Walrus eats BIG_FISH!'
 ]
 var TEST_OUTPUTS = [
   '',
@@ -38,7 +39,7 @@ var TEST_OUTPUTS = [
   '',
   'a-b',
   'ab-c',
-  'a-cantankerous-walrus-eats-big-fishies!'
+  'a-cantankerous-walrus-eats-big-fish!'
 ]
 // END NO EDIT
 
@@ -46,7 +47,7 @@ var TEST_OUTPUTS = [
 var controller = {
   toKebab: function () {
     var input = jq('#kebab_case_in').val()
-    return input
+    // your code here
   }
 }
 
@@ -55,13 +56,13 @@ var view = {
     tooling.resetSandbox()
     var challenge2Form = [
       '<form id="challenge_2">',
-      '<input id="kebab_case_in" type="text" />',
-      '<input id="kebab_case_out" type="text" />',
-      '<button type="submit" id="convert_to_kebab_case" type="submit">convert</button>',
+        '<input id="kebab_case_in" type="text" />',
+        '<input id="kebab_case_out" type="text" />',
+        '<button type="submit" id="convert_to_kebab_case" type="submit">convert</button>',
       '</form>'
     ].join('')
-    var $sbox = jq(tooling.getSandbox())
-    $sbox.append(challenge2Form)
+    var $sandbox = jq(tooling.getSandbox())
+    $sandbox.append(challenge2Form)
     window.document.getElementById('challenge_2').addEventListener(
       'submit',
       function () {
@@ -76,7 +77,7 @@ var view = {
 
 test('CHALLENGE 2 - kebab conversions', function (t) {
   // REMOVE the following two statements to begin!
-  t.fail('please open test/challenge-2.js and follow comment prompts.')
+  t.fail('==> 🚨 👀 please open test/challenge-2.js and follow comment prompts. 🚨 👀')
   return t.end()
   // END REMOVE
   view.setup(controller)

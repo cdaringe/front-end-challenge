@@ -42,14 +42,18 @@ var controller = {
     var aggregate = 0
 
     this.tier = 1
-    aggregate = this.getTierValue(this.a())
+    var a = this.a()
+    aggregate = this.getTierValue(a)
 
     this.tier = 2
-    aggregate += this.getTierValue(a + this.b1()) // note how a is used w/ b1's output
-    aggregate += this.getTierValue(a + this.b2())
+    var b1 = this.b1()
+    var b2 = this.b2()
+    aggregate += this.getTierValue(a + b1) // note how a is used w/ b1's output
+    aggregate += this.getTierValue(a + b2)
 
     this.tier = 3
-    aggregate += this.getTierValue(a + b1 + b2 + this.c())
+    var c = this.c()
+    aggregate += this.getTierValue(a + b1 + b2 + c)
 
     return cb(null, aggregate)
   },
@@ -59,13 +63,15 @@ var controller = {
   },
 
   /**
-   * function `a` should use the node-style callback paradigm to callback with
-   * the value 1 only after isEvenTime confirms that the current time... is even!
+   * Calls back when the number of milliseconds from the unix epoch is an even number.
+   * @param {Function} cb nodejs style callback
    */
   a: function (cb) {
-    // calls back with whether or not we are an even count of ticks from the epoch
-    // calls back many times until an even time is called
-    model.isEvenTime(function testForEven (err, isEven) { if (isEven) cb(null, 1) })
+    model.pollForEven(function testForEven (err, isEven) {
+      if (isEven) {
+        cb(null, 1)
+      }
+    })
   },
 
   /**
@@ -99,7 +105,7 @@ var model = {
       Promise.resolve(4)
     ]
   },
-  isEvenTime: function (cb) {
+  pollForEven: function (cb) {
     var loop = setInterval(function () {
       var isEven = !!(Date.now() % 2)
       cb(null, isEven)

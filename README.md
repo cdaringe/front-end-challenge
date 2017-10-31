@@ -16,14 +16,16 @@ a small set of exercises pertinent to front end development!
 
 ### part 1 - javascript
 
-- `npm install`
-- `npm test`
-  - this will open up a browser.  **please follow the onscreen instructions.**
-  - your objective is to make all tests pass. when they have all passed, part 1 is complete.
-    - by default we will use `chrome`. if you want to use `firefox` or `safari`, please edit `testem.json` accordingly for the exercise.
-    - disregard any security warnings at the top of the chrome browser--these are expected.
-  - to complete the tasks, it's highly recommended to use the debug utilities included in your browser.  make use of `debugger` statements in your code, as your code will be bundled before it is shipped to your browser.
-  - lastly, the test suite will automatically re-compile and run in the browser every time you make a change. be aware of this _convenience_ :smile:.
+- run these commands:
+  - `npm install`
+  - `npm test`
+- this will open up a browser.  **please follow the onscreen instructions.**
+- your objective is to make all tests pass. when they have all passed, part 1 is complete.
+  - by default we will use `chrome`. if you want to use `firefox` or `safari`, please edit `testem.json` accordingly for the exercise.
+  - disregard any security warnings at the top of the chrome browser--these are expected.
+- to complete the tasks, it's highly recommended to use the debug utilities included in your browser.  make use of `debugger` statements in your code, as your code will be bundled before it is shipped to your browser.
+- lastly, the test suite will automatically re-compile and run in the browser every time you make a change. be aware of this :smile:.
+- **please read the descriptions & comments fully before starting to code!**
 
 ### part 2 - css
 

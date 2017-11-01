@@ -64,6 +64,7 @@ var controller = {
 
   /**
    * Calls back when the number of milliseconds from the unix epoch is an even number.
+   * You MUST provide a callback function
    * @param {Function} cb nodejs style callback
    */
   a: function (cb) {
@@ -75,22 +76,25 @@ var controller = {
   },
 
   /**
-   * promises or callbacks OK. b1 must use getB1Value to get its value
+   * You may modify this to use promises, callbacks, or neither.
+   * This function must use `model.getB1Value`
    */
   b1: function () {
     return model.getB1Value() // returns a Promise. will resolve to b1's value
   },
 
   /**
-   * no rules! must pass 5 to its caller though any means desired
+   * You may modify this to use promises or callbacks.
    */
   b2: function () {
     return 5 // not an async function :)
   },
 
   /**
-   * promises or callbacks OK. c must use getCValues to get its value
-   */
+   * You may modify this to use promises, callbacks, or neither.
+   * This function must use `model.getCValues`.
+   * YOU MUST SUM ALL VALUES `model.getCValues` and provide that sum to the caller.
+  */
   c: function () {
     model.getCValues() // returns an array of Promises. sum the results results on resolution
   }

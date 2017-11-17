@@ -3,13 +3,12 @@
  * However, you would like to format the text before submitting it to your server.
  * You love kebab-case (or lisp-case) formatted text.  If you're unfamiliar with
  * kebab-case, it's an all lowercase format, where all words are seperated by hyphens.
- * _'s and all continuous whitespace characters are replaced by -.  Strings
- * always start and end with the word components, and thus never whitespace.
+ * _'s and all continuous whitespace characters are generally replaced by -'s.  Strings
+ * always start and end with the lowercase characters, and thus never whitespace
+ * or other characters.
  * examples: https://lodash.com/docs/4.17.4#kebabCase
  *
- * Your objective is to:
- *   - write the logic to convert the user input into kebab-case.
- *   - set the kebab text into <input id="kebab_case_out" />.
+ * Your objective is to write the logic to convert the user input into kebab-case.
  */
 
  // BEGIN NO EDIT
@@ -47,7 +46,10 @@ var TEST_OUTPUTS = [
 var controller = {
   toKebab: function () {
     var input = jq('#kebab_case_in').val()
+    var output
     // your code here
+    // ^^
+    jq('#kebab_case_out').val(output)
   }
 }
 

@@ -42,7 +42,6 @@ var controller = {
   handleSubmit: function (evt) {
     var value = evt.target.testInput
     this.t.equals(value, this.testInput, 'testInput value found in form input control')
-    this.t.end()
   }
 }
 

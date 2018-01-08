@@ -1,5 +1,7 @@
 # front-end-challenge
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/cdaringe/front-end-challenge.svg)](https://greenkeeper.io/)
+
 a small set of exercises pertinent to front end development!
 
 ## requirements
